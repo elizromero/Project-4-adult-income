@@ -1,4 +1,3 @@
-# Project-4-adult-income
 ## Adult Dataset Cleaning and Preprocessing Guide
 
 The **Adult dataset** (also known as the **Census Income** dataset) requires some cleaning before it's ready for analysis or modeling. While the dataset is considered "reasonably clean" according to the metadata, there are several steps that should be taken to ensure that the data is in its best possible form.
