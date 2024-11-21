@@ -6,14 +6,17 @@ This project predicts whether an individual's income exceeds $50K/year based on 
 
 ## Features
 
-Data Cleaning and Preprocessing:*Handled missing data, feature encoding, and scaling.
+**Data Cleaning and Preprocessing:** Handled missing data, feature encoding, and scaling.
+
 **Model Training:** Trained five machine learning models:
--Random Forest (primary model in deployment)
--Neural Network
--XGBoost
--SVC
--Linear Regression
+- Random Forest (primary model in deployment)
+- Neural Network
+- XGBoost
+- SVC
+- Linear Regression
+
 **Flask Application:** Deployed as a web app with a user-friendly interface.
+
 **Predictions Display:** Displays predictions from the Random Forest, Neural Network, and XGBoost models.
 
 ## Prerequisites
