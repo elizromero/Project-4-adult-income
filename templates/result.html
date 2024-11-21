@@ -4,11 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prediction Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Prediction Results</h1>
-    <p>Random Forest Prediction: {{ predictions['Random Forest'] }}</p>
-    <p>Neural Network Prediction: {{ predictions['Neural Network'] }}</p>
-    <p>XGBoost Prediction: {{ predictions['XGBoost'] }}</p>
+    <div class="container">
+        <h1>Prediction Results</h1>
+        <p><strong>Random Forest Prediction:</strong> {{ predictions['Random Forest'] }}</p>
+        <p><strong>Neural Network Prediction:</strong> {{ predictions['Neural Network'] }}</p>
+        <p><strong>XGBoost Prediction:</strong> {{ predictions['XGBoost'] }}</p>
+        <button onclick="window.location.href='/'">Go Back</button>
+    </div>
 </body>
 </html>

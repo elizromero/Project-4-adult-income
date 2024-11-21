@@ -4,27 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Income Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #d3d3d3; /* Light grey background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 15px 20px; /* Reduced padding */
+            max-width: 350px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 20px; /* Adjusted font size */
+            margin-bottom: 15px; /* Reduced spacing */
+        }
+        label {
+            display: block;
+            margin: 5px 0; /* Compressed spacing */
+            font-weight: bold;
+            color: #555;
+        }
+        input, select {
+            width: calc(100% - 10px); /* Reduced input width */
+            padding: 6px 5px; /* Compressed input padding */
+            margin-bottom: 10px; /* Reduced spacing */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px; /* Adjusted font size */
+        }
+        button {
+            width: 100%;
+            padding: 8px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px; /* Adjusted font size */
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Predict Income Level</h1>
-    <form action="/predict" method="POST">
-        <label>Age: <input type="number" name="age" required></label><br>
+    <div class="container">
+        <h1>Predict Income Level</h1>
+        <form action="/predict" method="POST">
+            <label>Age: <input type="number" name="age" required></label>
 
-        {% for feature, options in dropdown_options.items() %}
-            <label>{{ feature.replace('_', ' ').title() }}:
-                <select name="{{ feature }}">
-                    {% for option in options %}
-                        <option value="{{ option }}">{{ option }}</option>
-                    {% endfor %}
-                </select>
-            </label><br>
-        {% endfor %}
+            {% for feature, options in dropdown_options.items() %}
+                <label>{{ feature.replace('_', ' ').title() }}:
+                    <select name="{{ feature }}">
+                        {% for option in options %}
+                            <option value="{{ option }}">{{ option }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+            {% endfor %}
 
-        <label>Hours Per Week: <input type="number" name="hours_per_week" required></label><br>
-        <label>Capital Gain: <input type="number" step="any" name="capital_gain" value="{{ default_capital_gain }}" required></label><br>
-        <label>Capital Loss: <input type="number" step="any" name="capital_loss" value="{{ default_capital_loss }}" required></label><br>
-        <label>FNLWGT: <input type="number" step="any" name="fnlwgt" value="{{ default_fnlwgt }}" required></label><br>
-        <button type="submit">Predict</button>
-    </form>
+            <label>Hours Per Week: <input type="number" name="hours_per_week" required></label>
+
+            <!-- Removed Capital Gain, Capital Loss, and FNLWGT fields -->
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
 </body>
 </html>
