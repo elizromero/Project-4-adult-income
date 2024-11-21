@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Prediction</title>
+</head>
+<body>
+    <h1>Predict Income Level</h1>
+    <form action="/predict" method="POST">
+        <label>Age: <input type="number" name="age" required></label><br>
+
+        {% for feature, options in dropdown_options.items() %}
+            <label>{{ feature.replace('_', ' ').title() }}:
+                <select name="{{ feature }}">
+                    {% for option in options %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </label><br>
+        {% endfor %}
+
+        <label>Hours Per Week: <input type="number" name="hours_per_week" required></label><br>
+        <label>Capital Gain: <input type="number" step="any" name="capital_gain" value="{{ default_capital_gain }}" required></label><br>
+        <label>Capital Loss: <input type="number" step="any" name="capital_loss" value="{{ default_capital_loss }}" required></label><br>
+        <label>FNLWGT: <input type="number" step="any" name="fnlwgt" value="{{ default_fnlwgt }}" required></label><br>
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>
